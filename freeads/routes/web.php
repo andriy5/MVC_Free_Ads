@@ -35,3 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
 
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
+
+Route::get('/ad/create', 'AdsController@create')->name('ad.create');
+
+Route::post('/ad/store', 'AdsController@store')->name('ad.store');

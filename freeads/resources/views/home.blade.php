@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    🎉 You are logged in!
+                    <hr>
+                    <h3>My Ads</h3>
+                    <a href="{{ route('ad.create') }}" class="btn btn-primary float-right">New Ad</a>
                 </div>
             </div>
         </div>
