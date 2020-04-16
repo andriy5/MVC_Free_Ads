@@ -32,3 +32,6 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
+
+Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');

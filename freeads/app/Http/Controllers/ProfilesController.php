@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
-class UtillisateurController extends Controller
+class ProfilesController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,7 @@ class UtillisateurController extends Controller
      */
     public function index()
     {
-        // 
+        //
     }
 
     /**
@@ -56,7 +62,9 @@ class UtillisateurController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $profile = User::find($id);
+        // dd($profile);
+        return view('profile.edit');
     }
 
     /**
@@ -68,7 +76,23 @@ class UtillisateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        $user = User::find($id);
+
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => ['required', 'string', 'min:8']
+        ]);
+
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+        
+        return redirect('home');
     }
 
     /**
