@@ -36,6 +36,16 @@ Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edi
 
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
 
+Route::get('/ad', 'AdsController@index')->name('ad.index');
+
 Route::get('/ad/create', 'AdsController@create')->name('ad.create');
 
+Route::get('/ad/{ad}', 'AdsController@show')->name('ad.show');
+
+Route::patch('/ad/{ad}', 'AdsController@update')->name('ad.update');
+
+Route::get('/ad/{ad}/edit', 'AdsController@edit')->name('ad.edit');
+
 Route::post('/ad/store', 'AdsController@store')->name('ad.store');
+
+Route::delete('/ad/{ad}', 'AdsController@destroy')->name('ad.destroy');

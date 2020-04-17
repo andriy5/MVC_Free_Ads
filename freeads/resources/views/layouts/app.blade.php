@@ -57,6 +57,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
+                                    <a class="dropdown-item" href="{{ route('ad.index') }}">
+                                        My Ads
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('profile.edit', ['user' => Auth::user()->id]) }}">
                                         Edit
                                     </a>
