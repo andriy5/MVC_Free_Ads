@@ -142,27 +142,21 @@ class AdsController extends Controller
     }
 
     public function search() {
-        // dd($_GET);
-        // dd(request());
 
         $value = request()->searchValue;
 
-        // $data = [
-        //     'searchValue' => request()->searchValue,
-        // ];
-
-        // $results = Ad::where('title', $value);
-
-        // dd($results);
-
-
         $ad = Ad::where('title', $value)->get();
-        // dd($ads);
 
         $ads = $ad->sortByDesc('updated_at');
 
         $ads->values()->all();
 
         return view('ad.search', compact('ads'));
+    }
+
+    public function all() {
+        $ad = Ad::all()->sortByDesc('updated_at');
+
+        return view('ad.all', compact('ad'));
     }
 }

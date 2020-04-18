@@ -22,17 +22,15 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <!-- {{ config('app.name', 'Free Ads') }} -->
-                   <div>Free Ads</div>
+                   <div>💸 Free Ads</div>
                 </a>
 
-                <!-- Search bar -->
-                <form class="form-inline my-2 my-lg-0" action="{{ route('ad.search')}}">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Ads" aria-label="Search" name="searchValue">
-                    <button class="btn btn-outline-secondary  my-2 my-sm-0" type="submit">Search</button>
-                </form>
+            
+
+                
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,12 +38,33 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('ad.all') }}">All Ads<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('ad.index') }}">My Ads<span class="sr-only">(current)</span></a>
+                        </li>
 
+                        <!-- Link new Ad -->
+                        <li class="nav-item active">
+                            <a class="nav-link text-success" href="{{ route('ad.create') }}">New Ad<span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
 
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        
+                        <!-- Search bar -->
+                        <li class="nav-item active">
+                            <a class="nav-link text-secondary" href="#">Filters<span class="sr-only">(current)</span></a>
+                        </li>
+                        <form class="form-inline my-2 my-lg-0 mr-2" action="{{ route('ad.search')}}">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Quick Search" aria-label="Search" name="searchValue">
+                            <button class="btn btn-outline-success  my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                        
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

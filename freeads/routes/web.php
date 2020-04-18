@@ -40,6 +40,8 @@ Route::get('/search/ad', 'AdsController@search')->name('ad.search');
 
 Route::get('/ad', 'AdsController@index')->name('ad.index');
 
+Route::get('/ad/all', 'AdsController@all')->name('ad.all');
+
 Route::get('/ad/create', 'AdsController@create')->name('ad.create');
 
 Route::get('/ad/{ad}', 'AdsController@show')->name('ad.show');
