@@ -71,7 +71,12 @@ class AdsController extends Controller
     {
         $ad = Ad::findOrFail($id);
         // dd($ad);
-        return view('ad.edit', compact('ad'));
+        if(Auth()->user()->id == $ad->user_id){
+            return view('ad.edit', compact('ad'));
+        }
+        else {
+            return redirect('home');
+        }
     }
 
     /**
@@ -134,5 +139,30 @@ class AdsController extends Controller
         $ad->delete();
 
         return redirect(route('ad.index'));
+    }
+
+    public function search() {
+        // dd($_GET);
+        // dd(request());
+
+        $value = request()->searchValue;
+
+        // $data = [
+        //     'searchValue' => request()->searchValue,
+        // ];
+
+        // $results = Ad::where('title', $value);
+
+        // dd($results);
+
+
+        $ad = Ad::where('title', $value)->get();
+        // dd($ads);
+
+        $ads = $ad->sortByDesc('updated_at');
+
+        $ads->values()->all();
+
+        return view('ad.search', compact('ads'));
     }
 }

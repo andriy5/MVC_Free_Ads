@@ -13,6 +13,7 @@
                 <img src="/storage/{{$ad->image}}" alt="" class="w-100">
                 <p class="font-weight-bold">{{$ad->price}} €</p>
                 <p>{{$ad->description}}</p>
+                @if (Auth()->user()->id == $ad->user_id)
                 <div class="row float-right mr-1">
                   <a href="{{ route('ad.edit', ['ad' => $ad->id]) }}" class="btn btn-primary mr-1">Edit</a>
                   <form method="POST">
@@ -23,6 +24,7 @@
                     </button>
                   </form>
                 </div>
+                @endif
               </div>
             </div>
         </div>

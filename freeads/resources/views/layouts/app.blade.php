@@ -27,6 +27,13 @@
                     <!-- {{ config('app.name', 'Free Ads') }} -->
                    <div>Free Ads</div>
                 </a>
+
+                <!-- Search bar -->
+                <form class="form-inline my-2 my-lg-0" action="{{ route('ad.search')}}">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Ads" aria-label="Search" name="searchValue">
+                    <button class="btn btn-outline-secondary  my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
